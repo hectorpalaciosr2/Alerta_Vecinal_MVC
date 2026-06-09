@@ -43,4 +43,3 @@ Los siguientes métodos HTTP están protegidos y requieren enviar el JWT en el h
 También dejé implementadas las pruebas de la capa de acceso a datos (`IncidenteRepositoryTest`). Usé la base de datos en memoria H2 para que las pruebas corran limpias sin ensuciar la base de datos real de MySQL. Estas pruebas validan de forma automatizada las operaciones de Insertar, Actualizar, Eliminar y Listar.
 
 ---
-Hector Palacios.R
