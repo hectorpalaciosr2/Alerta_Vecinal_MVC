@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "7f9a83eb-5b0c-4e89-a5c3-1d2a1b1b9e02",
+		"name": "Alerta Vecinal API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"hector\",\n  \"password\": \"123456\",\n  \"rol\": \"ROLE_ADMIN\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					}
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"username\": \"hector\",\n  \"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Incidentes",
+			"item": [
+				{
+					"name": "Listar Incidentes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/incidents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"incidents"
+							]
+						}
+					}
+				},
+				{
+					"name": "Registrar Incidente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo\": \"Personas Sospechosas\",\n  \"descripcion\": \"Dos sujetos desconocidos tomando fotos a las casas de la cuadra. La junta vecinal solicita patrullaje preventivo.\",\n  \"direccion\": \"Jirón Los Recuerdos cuadra 2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/incidents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"incidents"
+							]
+						}
+					}
+				},
+				{
+					"name": "Buscar Incidente por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/incidents/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"incidents",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Actualizar Incidente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo\": \"Personas Sospechosas\",\n  \"descripcion\": \"Dos sujetos desconocidos. El Serenazgo ya se encuentra haciendo la ronda en nuestra calle tras el aviso del chat vecinal.\",\n  \"direccion\": \"Jirón Los Recuerdos cuadra 2\",\n  \"estado\": \"ATENDIDO\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/incidents/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"incidents",
+								"1"
+							]
+						}
+					}
+				},
+				{
+					"name": "Eliminar Incidente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{jwt_token}}"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/incidents/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"incidents",
+								"1"
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "jwt_token",
+			"value": "Pega_Aqui_Tu_Token"
+		}
+	]
+}
